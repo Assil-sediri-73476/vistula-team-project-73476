@@ -1,36 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A simple task manager for the Vistula Team Project course.">
   <title>Task Manager</title>
   <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
-  <main class="container">
-    <header>
-      <h1>Task Manager</h1>
-      <p>Student ID: <span id="student-id">73180</span></p>
-    </header>
-
-    <form id="task-form">
-      <input type="text" id="task-title" placeholder="Task title" required>
-      <textarea id="task-description" placeholder="Description (optional)" rows="2"></textarea>
-      <div class="form-buttons">
-        <button type="submit" id="task-submit">Add Task</button>
-        <button type="button" id="task-cancel" hidden>Cancel</button>
-      </div>
-    </form>
-
-    <p id="status-message" role="status"></p>
-
-    <div id="task-list"></div>
-
-    <footer>
-      <a id="contribution-link" href="contribution.html">Team Contribution</a>
-    </footer>
+  <main>
+    <header><div><p class="eyebrow">TEAM PROJECT · IT</p><h1>Task Manager<span>.</span></h1><p class="subtitle">A little structure. More progress.</p></div><p class="student">Student ID <strong id="student-id">73476</strong></p></header>
+    <div class="workspace">
+      <section class="panel composer" aria-labelledby="form-heading">
+        <p class="eyebrow">MAKE YOUR NEXT MOVE</p><h2 id="form-heading">New task</h2>
+        <form id="task-form">
+          <label for="task-title">Title <span aria-hidden="true">*</span></label>
+          <input id="task-title" name="title" required maxlength="500" placeholder="What needs to get done?">
+          <label for="task-description">Description <span class="optional">optional</span></label>
+          <textarea id="task-description" name="description" rows="5" placeholder="Add a few helpful details…"></textarea>
+          <button id="task-submit" type="submit" disabled>Add task <span aria-hidden="true">↗</span></button>
+          <button id="cancel-edit" class="secondary" type="button" hidden>Cancel editing</button>
+        </form>
+        <p class="note">Tasks are shared in a public demonstration database. Use test data only.</p>
+      </section>
+      <section class="tasks" aria-labelledby="list-heading">
+        <div class="list-header"><div><p class="eyebrow">YOUR WORKSPACE</p><h2 id="list-heading">All tasks <span id="task-count">0</span></h2></div><button id="refresh-tasks" class="secondary" type="button">Refresh</button></div>
+        <p id="status-message" role="status" aria-live="polite">Connecting to your workspace…</p>
+        <div id="task-list" aria-busy="true"></div>
+      </section>
+    </div>
+    <footer><span>One task at a time.</span><a id="contribution-link" href="contribution.html">Team contribution ↗</a></footer>
   </main>
-
-  <script src="app.js"></script>
 </body>
 </html>
